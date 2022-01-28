@@ -24,7 +24,7 @@
 .customer-post-list{
     width:90%;
     min-height:80px;
-    background-color: #ff7897;
+    background-color: #49df87;
     margin: auto;
     border-radius: 5px;
     color: rgba(255, 255, 255, 0.925);
@@ -67,7 +67,7 @@
     border-radius: 3px;
     margin: 2px;
     color: #fff;
-    background: #ffabdd;
+    background: #abf5ca;
 }
 
 .action-btn button:hover{
@@ -89,7 +89,7 @@
 }
 .add-btn button{
     font-size: 30px;
-    background: #9a51a3;
+    background: #77eda8;
     color: #fff;
     border: none;
     border-radius: 50%;

@@ -11,7 +11,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 
 export class CustomerComponent implements OnInit {
   customers:Customer[]=[]
-
+  filterText:""
   
   constructor(private customerService:CustomerService) { }
 
@@ -25,13 +25,5 @@ export class CustomerComponent implements OnInit {
     })
   }
 
-  displayStyle = "none";
   
-  openPopup() {
-    this.displayStyle = "block";
-  }
-  
-  closePopup() {
-    this.displayStyle = "none";
-  }
 }

@@ -21,4 +21,12 @@ export class CustomerService {
   add(customer:Customer):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl+"/addcustomer",customer);
   }
+
+  getCustomerById(userId:number):Observable<DataResponseModel<Customer>> {
+    return this.httpClient.get<DataResponseModel<Customer>>(this.apiUrl + "/getbyid?id="+userId)
+  }
+
+  updateUser(customer:Customer):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl + "/updatecustomer", customer)
+  }
 }
