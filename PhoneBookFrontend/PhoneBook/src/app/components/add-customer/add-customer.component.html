@@ -1,0 +1,40 @@
+<div class="modal fade" id="addCustomerModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="addCustomerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addCustomerModalLabel">Kişi Ekle</h5>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="firstName" class="form-control" id="floatingFirstname"
+                            placeholder="Ad-Soyad">
+                        <label for="floatingFirstname">Ad-Soyad</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="lastName" class="form-control" id="floatingLastname"
+                            placeholder="Telefon">
+                        <label for="floatingLastname">Telefon</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" formControlName="email" class="form-control" id="floatingInput"
+                            placeholder="Doğum Tarihi">
+                        <label for="floatingInput">Doğum Tarihi</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea type="text" formControlName="phone" class="form-control" id="floatingInput"
+                            placeholder="Açıklama"></textarea>
+                        <label for="floatingInput">Açıklama</label>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                <button type="button" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
