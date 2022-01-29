@@ -8,9 +8,9 @@ namespace Business.Constants
 {
 	public static class Messages
 	{
-		public static string CustomerAdded = "Müşteri eklendi";
-		public static string CustomerListed = "Müşteri listelendi";
-		public static string CustomerUpdated = "Müşteri güncellendi";
-		public static string CustomerDeleted = "Müşteri silindi";
+		public static string CustomerAdded = "Kişi eklendi";
+		public static string CustomerListed = "Kişi listelendi";
+		public static string CustomerUpdated = "Kişi güncellendi";
+		public static string CustomerDeleted = "Kişi silindi";
 	}
 }

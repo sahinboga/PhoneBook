@@ -3,6 +3,7 @@ import { Customer } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -73,6 +74,33 @@ export class CustomerComponent implements OnInit {
     else {
       this.toastrService.error("Bilgiler eksik.", "Hata")
     }
+  }
+
+  deleteCustomer(customer:Customer) {
+    Swal.fire({
+      title: 'Emin misin?',
+      text:"Kişi silinecek",
+      icon:'warning',
+      showCancelButton: true,
+      showConfirmButton: false,
+      showDenyButton: true,
+      denyButtonText:"Evet, Sil"
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isDenied) {
+        this.customerService.deleteCustomer(customer).subscribe(response => {
+          Swal.fire('Silindi!', '', 'success')
+          this.getCustomers()
+        }, responseError => {
+          if(responseError.error.Errors.length>0){
+            for (let i = 0; i <responseError.error.Errors.length; i++) {
+              this.toastrService.error(responseError.error.Errors[i].ErrorMessage
+                ,"Hata")
+            }       
+          }
+        })
+      }
+    })
   }
   
 }

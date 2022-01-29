@@ -14,7 +14,7 @@
         <div class="row">
           <div class="col-md-8 info-content d-flex">
             <img class="customer-image me-3"
-              src="https://www.shareicon.net/data/512x512/2016/07/26/802031_user_512x512.png" alt="" />
+              src="https://www.pinclipart.com/picdir/middle/221-2217551_computer-user-clip-art.png" alt="" />
             <div class="row">
               <div class="col-12 customer-name">{{customer.customerName}}</div>
               <div class="col-12 customer-phone">{{customer.customerPhoneNumber}}</div>
@@ -23,7 +23,7 @@
           </div>
           <div class="col-md-3 action-btn">
             <button data-toggle="modal" data-target="#editCustomerModal" (click)="setCurrentCustomer(customer)"><i class="fas fa-edit"></i></button>
-            <button><i class="fas fa-trash"></i></button>
+            <button (click)="deleteCustomer(customer)"><i class="fas fa-trash"></i></button>
           </div>
         </div>
         <div class="me-3">

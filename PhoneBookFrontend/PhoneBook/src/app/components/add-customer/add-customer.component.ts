@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Customer } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -10,12 +11,14 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class AddCustomerComponent implements OnInit {
 
+  customers:Customer[]=[]
   addCustomerForm:FormGroup
   constructor(private customerService:CustomerService,
               private formBuilder:FormBuilder,
               private toastrService:ToastrService) { }
 
   ngOnInit(): void {
+    //this.getCustomers()
     this.createCustomerAddForm()
   }
   
@@ -28,12 +31,18 @@ export class AddCustomerComponent implements OnInit {
     })
   }
   
+  // getCustomers(){
+  //   this.customerService.getCustomers().subscribe(response=>{
+  //     this.customers=response.data
+  //   })
+  // }
 
   add(){
     if(this.addCustomerForm.valid){
       let customerModel = Object.assign({},this.addCustomerForm.value)
       this.customerService.add(customerModel).subscribe(response=>{
         this.toastrService.success(response.message)
+        //this.getCustomers()
       },responseError=>{
         if(responseError.error.Errors.length>0){
           for (let i = 0; i <responseError.error.Errors.length; i++) {

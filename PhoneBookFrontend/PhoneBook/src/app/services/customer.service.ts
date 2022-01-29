@@ -29,4 +29,8 @@ export class CustomerService {
   updateUser(customer:Customer):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>(this.apiUrl + "/updatecustomer", customer)
   }
+
+  deleteCustomer(customer:Customer):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"/deletecustomer",customer)
+  }
 }
