@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="col-md-3 action-btn">
-            <button data-toggle="modal" data-target="#editCustomerModal"><i class="fas fa-edit"></i></button>
+            <button data-toggle="modal" data-target="#editCustomerModal" (click)="setCurrentCustomer(customer)"><i class="fas fa-edit"></i></button>
             <button><i class="fas fa-trash"></i></button>
           </div>
         </div>
@@ -33,10 +33,50 @@
     </div>
     <div class="add-btn">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCustomerModal">
-        <i class="fas fa-plus"></i>
+        <i class="fas fa-user-plus"></i>
       </button>
     </div>
   </div>
 </div>
 <app-add-customer></app-add-customer>
-<app-update-customer></app-update-customer>
+<!--Update Modal-->
+<div class="modal fade" id="editCustomerModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="editCustomerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editCustomerModalLabel">Kişi Güncelle</h5>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="updateCustomerForm">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="customerName" class="form-control" id="customerName"
+                            placeholder="Ad-Soyad">
+                        <label for="floatingFirstname">Ad-Soyad</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="customerPhoneNumber" class="form-control" id="customerPhoneNumber"
+                            placeholder="Telefon">
+                        <label for="floatingLastname">Telefon</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="date" formControlName="customerBirthDate"  class="form-control" id="customerBirthDate"
+                            placeholder="Doğum Tarihi">
+                        <label for="floatingInput">Doğum Tarihi</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <textarea type="text" formControlName="customerDescription" class="form-control" id="customerDescription"
+                            placeholder="Açıklama"></textarea>
+                        <label for="floatingInput">Açıklama</label>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCustomer()">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>

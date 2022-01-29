@@ -27,6 +27,12 @@ namespace WebAPI.Controllers
 			return this.ResponseResult(_customerService.GetAll());
 		}
 
+		[HttpGet("getbyid")]
+		public IActionResult GetById(int customerId)
+		{
+			return this.ResponseResult(_customerService.GetById(customerId));
+		}
+
 		[HttpPost("addcustomer")]
 		public  IActionResult Add(Customer customer)
 		{
@@ -39,7 +45,7 @@ namespace WebAPI.Controllers
 			return this.ResponseResult(_customerService.Update(customer));
 		}
 
-		[HttpPost("deletetecustomer")]
+		[HttpPost("deletecustomer")]
 		public IActionResult Delete(Customer customer)
 		{
 			return this.ResponseResult(_customerService.Delete(customer));

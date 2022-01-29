@@ -27,6 +27,7 @@ export class AddCustomerComponent implements OnInit {
       customerDescription: ["", Validators.required]
     })
   }
+  
 
   add(){
     if(this.addCustomerForm.valid){

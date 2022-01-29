@@ -16,3 +16,4 @@ C:\Users\CASPER\Documents\GitHub\PhoneBook\PhoneBook\Business\obj\Debug\net5.0\B
 C:\Users\CASPER\Documents\GitHub\PhoneBook\PhoneBook\Business\obj\Debug\net5.0\Business.dll
 C:\Users\CASPER\Documents\GitHub\PhoneBook\PhoneBook\Business\obj\Debug\net5.0\ref\Business.dll
 C:\Users\CASPER\Documents\GitHub\PhoneBook\PhoneBook\Business\obj\Debug\net5.0\Business.pdb
+C:\Users\CASPER\Documents\GitHub\PhoneBook\PhoneBook\Business\obj\Debug\net5.0\Business.csproj.CopyComplete

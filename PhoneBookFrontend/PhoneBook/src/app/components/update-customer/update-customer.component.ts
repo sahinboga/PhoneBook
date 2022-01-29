@@ -20,37 +20,46 @@ export class UpdateCustomerComponent implements OnInit {
 
   ngOnInit(): void {
     //this.getCustomer()
+    this.createCustomerEditForm()
   }
 
-  // createCustomerEditForm() {
-  //   this.updateCustomerForm = this.formBuilder.group({
-  //     customerName: [this.customer.customerName, Validators.required],
-  //     customerPhoneNumber: [this.customer.customerPhoneNumber, [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
-  //     customerBirthDate:[this.customer.customerBirthDate,Validators.required],
-  //     customerDescription: [this.customer.customerDescription, Validators.required]
-  //   })
-  // }
+  createCustomerEditForm() {
+    this.updateCustomerForm = this.formBuilder.group({
+      id: ["", Validators.required],
+      customerName: ["", Validators.required],
+      customerPhoneNumber: ["", [Validators.required,Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
+      customerBirthDate:["",Validators.required],
+      customerDescription: ["", Validators.required]
+    })
+  }
 
-  // getCustomer(){
-  //   this.customerService.getCustomerById(this.customerId).subscribe(response => {
-  //     this.customer = response.data//ToDo: Toast ile bilgilendir.
-  //   })
-  // }
+  setCurrentCustomer(){
+    this.updateCustomerForm.controls['id'].setValue(this.customer.id)
+    this.updateCustomerForm.controls['customerName'].setValue(this.customer.customerName)
+    this.updateCustomerForm.controls['customerPhoneNumber'].setValue(this.customer.customerPhoneNumber) 
+    this.updateCustomerForm.controls['customerBirthDate'].setValue(this.customer.customerBirthDate) 
+    this.updateCustomerForm.controls['customerDescription'].setValue(this.customer.customerDescription)  
+  }
 
-  // updateUser() {
-  //   if(this.updateCustomerForm.valid) {
-  //     //let userId = this.localStorageService.GetUserId()
-  //     let customerModel = Object.assign({id:this.customerId}, this.updateCustomerForm.value)
-  //     console.log(customerModel)
-  //     this.customerService.updateUser(customerModel).subscribe(response => {
-  //       console.log(response)
-  //       this.getCustomer()
-  //     }, errorResponse => {
-  //       console.log(errorResponse)
-  //     })
-  //   }
-  //   else {
-  //     this.toastrService.error("Bilgiler eksik.", "Hata")
-  //   }
-  // }
+  updateCustomer() {
+    if(this.updateCustomerForm.valid) {
+      let customerModel:Customer = Object.assign({id:this.customer.id}, this.updateCustomerForm.value)
+      console.log(customerModel)
+      this.customerService.updateUser(customerModel).subscribe(response => {
+        
+        this.toastrService.success(response.message)
+      }, responseError => {
+        if(responseError.error.Errors.length>0){
+          for (let i = 0; i <responseError.error.Errors.length; i++) {
+            this.toastrService.error(responseError.error.Errors[i].ErrorMessage
+              ,"Hata")
+          }       
+        }
+      })
+    }
+    else {
+      this.toastrService.error("Bilgiler eksik.", "Hata")
+    }
+  }
+
 }
