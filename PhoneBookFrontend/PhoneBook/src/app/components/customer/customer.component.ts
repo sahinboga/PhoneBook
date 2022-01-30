@@ -26,6 +26,7 @@ export class CustomerComponent implements OnInit {
     this.createCustomerEditForm()
   }
 
+  // Kişi listeleme
   getCustomers(){
     this.customerService.getCustomers().subscribe(response=>{
       this.customers=response.data
@@ -53,6 +54,7 @@ export class CustomerComponent implements OnInit {
     
   }
 
+  //Kişi güncelleme
   updateCustomer() {
     if(this.updateCustomerForm.valid) {
       let customerModel:Customer = Object.assign({}, this.updateCustomerForm.value)
@@ -76,12 +78,14 @@ export class CustomerComponent implements OnInit {
     }
   }
 
+  // Kişi Silme
   deleteCustomer(customer:Customer) {
     Swal.fire({
       title: 'Emin misin?',
       text:"Kişi silinecek",
       icon:'warning',
       showCancelButton: true,
+      cancelButtonText:"İptal",
       showConfirmButton: false,
       showDenyButton: true,
       denyButtonText:"Evet, Sil"

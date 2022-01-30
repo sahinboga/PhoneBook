@@ -4,8 +4,8 @@
     overflow: hidden;
 
     background: #ff0099; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #43ee9e, #14915c); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #78ffb0, #80f098a1);
+    background: -webkit-linear-gradient(to bottom, #43aaee, #0d4d52); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #78ffb0, #60cf97a1);
 }
 
 

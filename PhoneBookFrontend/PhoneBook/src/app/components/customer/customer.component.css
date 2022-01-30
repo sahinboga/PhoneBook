@@ -70,14 +70,38 @@
     background: #abf5ca;
 }
 
-.action-btn button:hover{
+/* .action-btn button:hover{
 
-}
+} */
 
 .search{
     margin: auto;
     width: 90%;
     margin-top: 10px;
+    display: flex;
+    position: relative;
+}
+
+.search input{
+    width: 99%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 0px 4px 1px #0000002e;
+  background-color: #49df87;
+  color: white;
+}
+
+::placeholder { 
+    color: white;
+  }
+.search-icon{
+    position: absolute;
+  top: 25px;
+  right: 15px;
+  color: #fff;
 }
 
 .add-btn{
@@ -94,6 +118,6 @@
     border: none;
     border-radius: 50%;
 }
-.add-btn button:hover{
+/* .add-btn button:hover{
     
-}
+} */

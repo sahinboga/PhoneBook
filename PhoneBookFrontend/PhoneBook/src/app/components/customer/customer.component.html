@@ -1,13 +1,15 @@
 <div class="centered">
   <div class="customer-card scrolling">
-    <div class="search">
-      <div class="input-group mb-3">
-        <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="Kişileri ara..." aria-label="Recipient's username"
-          aria-describedby="button-addon2">
+    <div class="search mb-3">
+      <!-- <div class="input-group search mb-3">
+        <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="Kişileri ara..."
+          aria-label="Recipient's username" aria-describedby="button-addon2">
         <button class="btn btn-outline-secondary" type="button" id="button-addon2">
           <i class="fas fa-search"></i>
         </button>
-      </div>
+      </div> -->
+      <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="Kişileri ara...">
+      <i class="fas fa-search search-icon"></i>
     </div>
     <div class="customer-post">
       <div class="customer-post-list my-2" *ngFor="let customer of customers | search:filterText">
@@ -18,11 +20,13 @@
             <div class="row">
               <div class="col-12 customer-name">{{customer.customerName}}</div>
               <div class="col-12 customer-phone">{{customer.customerPhoneNumber}}</div>
-              <div class="col-12 customer-date">{{customer.customerBirthDate|date: 'dd'}}-{{customer.customerBirthDate|date: 'MM'}}-{{customer.customerBirthDate|date:'yyyy'}}</div>
+              <div class="col-12 customer-date">{{customer.customerBirthDate|date:
+                'dd'}}-{{customer.customerBirthDate|date: 'MM'}}-{{customer.customerBirthDate|date:'yyyy'}}</div>
             </div>
           </div>
           <div class="col-md-3 action-btn">
-            <button data-toggle="modal" data-target="#editCustomerModal" (click)="setCurrentCustomer(customer)"><i class="fas fa-edit"></i></button>
+            <button data-toggle="modal" data-target="#editCustomerModal" (click)="setCurrentCustomer(customer)"><i
+                class="fas fa-edit"></i></button>
             <button (click)="deleteCustomer(customer)"><i class="fas fa-trash"></i></button>
           </div>
         </div>
@@ -41,42 +45,42 @@
 <app-add-customer></app-add-customer>
 <!--Update Modal-->
 <div class="modal fade" id="editCustomerModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
-    aria-labelledby="editCustomerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editCustomerModalLabel">Kişi Güncelle</h5>
-            </div>
-            <div class="modal-body">
-                <form [formGroup]="updateCustomerForm">
-                    <div class="form-floating mb-3">
-                        <input type="text" formControlName="customerName" class="form-control" id="customerName"
-                            placeholder="Ad-Soyad">
-                        <label for="floatingFirstname">Ad-Soyad</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" formControlName="customerPhoneNumber" class="form-control" id="customerPhoneNumber"
-                            placeholder="Telefon">
-                        <label for="floatingLastname">Telefon</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="date" formControlName="customerBirthDate"  class="form-control" id="customerBirthDate"
-                            placeholder="Doğum Tarihi">
-                        <label for="floatingInput">Doğum Tarihi</label>
-                    </div>
+  aria-labelledby="editCustomerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editCustomerModalLabel">Kişi Güncelle</h5>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="updateCustomerForm">
+          <div class="form-floating mb-3">
+            <input type="text" formControlName="customerName" class="form-control" id="customerName"
+              placeholder="Ad-Soyad">
+            <label for="floatingFirstname">Ad-Soyad</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" formControlName="customerPhoneNumber" class="form-control" id="customerPhoneNumber"
+              placeholder="Telefon">
+            <label for="floatingLastname">Telefon</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="date" formControlName="customerBirthDate" class="form-control" id="customerBirthDate"
+              placeholder="Doğum Tarihi">
+            <label for="floatingInput">Doğum Tarihi</label>
+          </div>
 
-                    <div class="form-floating mb-3">
-                        <textarea type="text" formControlName="customerDescription" class="form-control" id="customerDescription"
-                            placeholder="Açıklama"></textarea>
-                        <label for="floatingInput">Açıklama</label>
-                    </div>
+          <div class="form-floating mb-3">
+            <textarea type="text" formControlName="customerDescription" class="form-control" id="customerDescription"
+              placeholder="Açıklama"></textarea>
+            <label for="floatingInput">Açıklama</label>
+          </div>
 
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCustomer()">Kaydet</button>
-            </div>
-        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateCustomer()">Kaydet</button>
+      </div>
     </div>
+  </div>
 </div>
