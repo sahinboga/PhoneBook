@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Customer } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -10,15 +9,13 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
-
-  customers:Customer[]=[]
+  @Output() getCustomers=new EventEmitter<string>();
   addCustomerForm:FormGroup
   constructor(private customerService:CustomerService,
               private formBuilder:FormBuilder,
               private toastrService:ToastrService) { }
 
   ngOnInit(): void {
-    //this.getCustomers()
     this.createCustomerAddForm()
   }
   
@@ -31,18 +28,12 @@ export class AddCustomerComponent implements OnInit {
     })
   }
   
-  // getCustomers(){
-  //   this.customerService.getCustomers().subscribe(response=>{
-  //     this.customers=response.data
-  //   })
-  // }
-
   add(){
     if(this.addCustomerForm.valid){
       let customerModel = Object.assign({},this.addCustomerForm.value)
       this.customerService.add(customerModel).subscribe(response=>{
         this.toastrService.success(response.message)
-        //this.getCustomers()
+        this.getCustomers.emit()
       },responseError=>{
         if(responseError.error.Errors.length>0){
           for (let i = 0; i <responseError.error.Errors.length; i++) {

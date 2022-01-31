@@ -15,6 +15,17 @@
     padding: 10px;
 }
 
+@media screen and (max-width:900px) {
+    .customer-card{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .customer-card{
+        width: 80%;
+    }
+}
 
 .customer-post{
     margin-top: 10px;
@@ -36,7 +47,6 @@
 .customer-image{
     width: 50px;
     height: 55px;
-    margin: auto;
     margin-top: 5px;
     border-radius: 100%;
 }
@@ -67,7 +77,7 @@
     border-radius: 3px;
     margin: 2px;
     color: #fff;
-    background: #abf5ca;
+    background: #3c958d;
 }
 
 /* .action-btn button:hover{
@@ -113,11 +123,53 @@
 }
 .add-btn button{
     font-size: 30px;
-    background: #008982;
+    background: #3c958d;
     color: #fff;
     border: none;
     border-radius: 50%;
 }
-/* .add-btn button:hover{
-    
-} */
+
+@media screen and (max-width:1200px) {
+    .customer-card{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .customer-card{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .customer-card{
+        width: 70%;
+    }
+    .customer-post-list{
+        width:90%;
+        min-height:80px;
+        
+    }
+}
+
+@media screen and (max-width:740px) {
+    .customer-card{
+        width: 80%;
+    }
+    .customer-post-list{
+        width:80%;
+        min-height:70px;
+        
+    }
+}
+
+@media screen and (max-width:600px) {
+    .customer-card{
+        width: 80%;
+    }
+    .customer-post-list{
+        width:70%;
+        min-height:60px;
+        
+    }
+}
