@@ -2,10 +2,10 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-
-    background: #ff0099; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #43aaee, #0d4d52); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to top, #78ffb0, #60cf97a1);
+    background-image: url("https://st3.depositphotos.com/10953546/14866/v/450/depositphotos_148660113-stock-illustration-technology-social-media-network-link.jpg");
+    /* background: #ff0099; 
+    background: -webkit-linear-gradient(to bottom, #43aaee, #0d4d52); 
+    background: linear-gradient(to top, #78ffb0, #60cf97a1); */
 }
 
 
