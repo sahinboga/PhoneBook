@@ -1,2 +1,2 @@
 # PhoneBook
-.Net Core ve Angular ile yapacağım projem
+.Net Core ve Angular ile yaptığım telefon rehberi projem
